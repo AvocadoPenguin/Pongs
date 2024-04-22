@@ -3,6 +3,7 @@ Pongs
 About the game	
 Pongs is a simple game where you can move your paddle using the WASD and arrow keys to hit the ball to the other side. If the ball goes past your side of the screen, the other person gets a point. 
 
+![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
 
 The game goes on until one person reaches the amount of round to win. There are also customizable settings such as…
 
