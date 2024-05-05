@@ -1,0 +1,36 @@
+﻿<Window x:Class="Pongs.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pongs"
+        mc:Ignorable="d"
+        Title="Settings" Height="582" Width="382" Foreground="Black" BorderBrush="Black" OpacityMask="Black" Background="Black" ResizeMode="NoResize" Closing="OnClosing" WindowStyle="ToolWindow">
+    <Grid x:Name="grid" Margin="0,0,22,-16">
+        <TextBlock x:Name="Title" TextWrapping="Wrap" Text="Settings" Margin="12,1,-3,341" FontSize="36" Foreground="White"/>
+        <Slider x:Name="BallSpeedSlider" Margin="134,72,-2,377" Maximum="9" Minimum="2" IsSnapToTickEnabled="True" Value="{Binding BallSpeed, Mode=TwoWay}" ValueChanged="OnValueChanged"/>
+        <Slider x:Name="BallSizeSlider" Margin="134,171,-2,278" Maximum="50" Minimum="1" IsSnapToTickEnabled="True" Value="{Binding BallSize, Mode=TwoWay}" ValueChanged="OnValueChanged"/>
+        <Slider x:Name="PaddleSpeedSlider" Margin="134,270,-2,179" Maximum="9" Minimum="2" IsSnapToTickEnabled="True" Value="{Binding PaddleSpeed, Mode=TwoWay}" ValueChanged="OnValueChanged"/>
+        <Slider x:Name="PaddleSizeSlider" Margin="134,380,-2,69" Maximum="50" Minimum="1" IsSnapToTickEnabled="True" Value="{Binding PaddleSize, Mode=TwoWay}" ValueChanged="OnValueChanged"/>
+        <Label Content="Ball Speed" Margin="8,62,219,366" Background="Black" BorderBrush="White" Foreground="White" FontSize="18"/>
+        <Label Content="Ball Size" Margin="8,160,222,267" Background="Black" BorderBrush="White" Foreground="White" FontSize="18" RenderTransformOrigin="0.109,0.46">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.773"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.119"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Paddle Speed" Margin="8,259,219,168" Background="Black" BorderBrush="White" Foreground="White" FontSize="14"/>
+        <Label Content="Paddle Size" Margin="8,370,219,58" Background="Black" BorderBrush="White" Foreground="White" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="134,96,0,0" TextWrapping="Wrap" Text="The speed at which the ball starts moving at." VerticalAlignment="Top" Height="56" Width="210" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="134,195,0,0" TextWrapping="Wrap" Text="The size of the ball." VerticalAlignment="Top" Height="56" Width="210" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="134,294,0,0" TextWrapping="Wrap" Text="The speed at which the paddle moves at." VerticalAlignment="Top" Height="56" Width="210" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="134,404,0,0" TextWrapping="Wrap" Text="The size of the paddle." VerticalAlignment="Top" Height="56" Width="210" Foreground="White"/>
+        <Label Content="Rounds to Win" Margin="8,460,219,10" Background="Black" BorderBrush="White" Foreground="White" FontSize="16"/>
+        <TextBox x:Name="Rounds_to_win" HorizontalAlignment="Left" Margin="136,466,0,0" TextWrapping="Wrap" Text="{Binding RoundsToWin, Mode=TwoWay}" VerticalAlignment="Top" Width="202"/>
+        <TextBlock HorizontalAlignment="Left" Margin="134,493,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="56" Width="210" Foreground="White"><Run Text="The amount of wins a player needs to win the game"/><LineBreak/><Run/></TextBlock>
+    </Grid>
+</Window>

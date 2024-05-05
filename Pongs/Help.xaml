@@ -1,0 +1,14 @@
+﻿<Window x:Class="Pongs.Help"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pongs"
+        mc:Ignorable="d"
+        Title="Help" Height="264" Width="450" ResizeMode="NoResize" WindowStyle="ToolWindow">
+    <Grid x:Name="HelpScreen" Background="Black">
+        <TextBlock TextWrapping="Wrap" Text="This project was made by Skanda B.K. using Visual Studio 2022. It was modeled after the game game Pong, one of the first video games to exist. This project was created in April 2024." Margin="10,10,10,0" Foreground="White" FontSize="18"/>
+        <TextBlock TextWrapping="Wrap" Text="This project is using the MIT license, or Permissive open-source license. This means that this project can be used, modified, and distributed by others with credit to the creator." Margin="10,126,10,0" Foreground="White" FontSize="18"/>
+
+    </Grid>
+</Window>

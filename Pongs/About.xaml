@@ -1,0 +1,153 @@
+﻿<Window x:Class="Pongs.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pongs"
+        mc:Ignorable="d"
+        Title="About" Height="450" Width="450" ResizeMode="NoResize" WindowStyle="ToolWindow">
+    <Grid Background="Black">
+        <Rectangle HorizontalAlignment="Left" Height="290" Margin="219,-6,0,0" Stroke="White" VerticalAlignment="Top" Width="225"/>
+        <Rectangle HorizontalAlignment="Left" Height="290" Stroke="White" VerticalAlignment="Top" Width="226" Margin="-6,-6,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,80,0,0" TextWrapping="Wrap" Text="Use the WASD Keys to move" VerticalAlignment="Top" Height="66" Width="154" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="16,10,0,0" TextWrapping="Wrap" Text="P1 Controls" VerticalAlignment="Top" FontSize="36" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="240,10,0,0" TextWrapping="Wrap" Text="P2 Controls" VerticalAlignment="Top" FontSize="36" Foreground="White"/>
+        <Rectangle HorizontalAlignment="Left" Height="38" Margin="88,113,0,0" Stroke="#FFA5A5A5" VerticalAlignment="Top" Width="38" Fill="#FFC8C8C8"/>
+        <Rectangle HorizontalAlignment="Left" Height="38" Margin="88,149,0,0" Stroke="#FFA5A5A5" VerticalAlignment="Top" Width="38" Fill="#FFC8C8C8"/>
+        <Rectangle HorizontalAlignment="Left" Height="38" Margin="124,149,0,0" Stroke="#FFA5A5A5" VerticalAlignment="Top" Width="38" Fill="#FFC8C8C8"/>
+        <Rectangle HorizontalAlignment="Left" Height="38" Margin="52,149,0,0" Stroke="#FFA5A5A5" VerticalAlignment="Top" Width="38" Fill="#FFC8C8C8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="90,107,0,0" TextWrapping="Wrap" Text="W" VerticalAlignment="Top" FontSize="36" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="58,141,0,0" TextWrapping="Wrap" Text="A" VerticalAlignment="Top" FontSize="36" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="96,141,0,0" TextWrapping="Wrap" Text="S" VerticalAlignment="Top" FontSize="36" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="130,141,0,0" TextWrapping="Wrap" Text="D" VerticalAlignment="Top" FontSize="36" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,204,0,0" TextWrapping="Wrap" Text="W moves the paddle up" VerticalAlignment="Top" Height="66" Width="132" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,218,0,0" TextWrapping="Wrap" Text="A moves the paddle left" VerticalAlignment="Top" Height="66" Width="132" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,232,0,0" TextWrapping="Wrap" Text="S moves the paddle down" VerticalAlignment="Top" Height="66" Width="146" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.666"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.767"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="41,246,0,0" TextWrapping="Wrap" Text="D moves the paddle right" VerticalAlignment="Top" Height="66" Width="146" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.666"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.767"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="254,80,0,0" TextWrapping="Wrap" Text="Use the Arrow Keys to move" VerticalAlignment="Top" Height="66" Width="154" Foreground="White"/>
+        <Rectangle HorizontalAlignment="Left" Height="38" Margin="312,113,0,0" Stroke="#FFA5A5A5" VerticalAlignment="Top" Width="38" Fill="#FFC8C8C8"/>
+        <Rectangle HorizontalAlignment="Left" Height="38" Margin="312,149,0,0" Stroke="#FFA5A5A5" VerticalAlignment="Top" Width="38" Fill="#FFC8C8C8"/>
+        <Rectangle HorizontalAlignment="Left" Height="38" Margin="348,149,0,0" Stroke="#FFA5A5A5" VerticalAlignment="Top" Width="38" Fill="#FFC8C8C8"/>
+        <Rectangle HorizontalAlignment="Left" Height="38" Margin="276,149,0,0" Stroke="#FFA5A5A5" VerticalAlignment="Top" Width="38" Fill="#FFC8C8C8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="323,103,0,0" TextWrapping="Wrap" Text="↑" VerticalAlignment="Top" FontSize="36" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="280,141,0,0" TextWrapping="Wrap" Text="←" VerticalAlignment="Top" FontSize="36" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="322,141,0,0" TextWrapping="Wrap" Text="↓" VerticalAlignment="Top" FontSize="36" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="352,141,0,0" TextWrapping="Wrap" Text="→" VerticalAlignment="Top" FontSize="36" Foreground="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="265,204,0,0" TextWrapping="Wrap" Text="↑ moves the paddle up" VerticalAlignment="Top" Height="66" Width="132" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="265,218,0,0" TextWrapping="Wrap" Text="← moves the paddle left" VerticalAlignment="Top" Height="66" Width="132" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="264,232,0,0" TextWrapping="Wrap" Text="↓ moves the paddle down" VerticalAlignment="Top" Height="66" Width="146" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.666"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.767"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="264,246,0,0" TextWrapping="Wrap" Text="→ moves the paddle right" VerticalAlignment="Top" Height="66" Width="146" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.666"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.767"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="22,293,0,0" TextWrapping="Wrap" Text="Hit the ball with you paddle to knock it to the other side" VerticalAlignment="Top" Height="66" Width="154" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="250,290,0,0" TextWrapping="Wrap" Text="If the ball goes past your side of the screen, the other person gets a point" VerticalAlignment="Top" Height="66" Width="183" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,381,0,0" TextWrapping="Wrap" Text="First to 5 points wins!" VerticalAlignment="Top" Height="66" Width="116" Foreground="White"/>
+        <Rectangle HorizontalAlignment="Left" Height="50" Margin="23,349,0,0" Stroke="White" VerticalAlignment="Top" Width="10" StrokeThickness="4"/>
+        <Rectangle HorizontalAlignment="Left" Height="50" Margin="329,359,0,0" Stroke="White" VerticalAlignment="Top" Width="10" StrokeThickness="4"/>
+        <Ellipse HorizontalAlignment="Left" Height="10" Margin="69,348,0,0" Stroke="White" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,0.5" Fill="White">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <TextBlock HorizontalAlignment="Left" Margin="47,344,0,0" TextWrapping="Wrap" Text="←" VerticalAlignment="Top" FontSize="24" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-34.642"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="44,371,0,0" TextWrapping="Wrap" Text="←" VerticalAlignment="Top" FontSize="24" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-142.228"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Ellipse HorizontalAlignment="Left" Height="10" Margin="38,369,0,0" Stroke="White" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,0.5" Fill="White">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse HorizontalAlignment="Left" Height="10" Margin="66,392,0,0" Stroke="White" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,0.5" Fill="White">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse HorizontalAlignment="Left" Height="10" Margin="309,343,0,0" Stroke="White" VerticalAlignment="Top" Width="10" RenderTransformOrigin="0.5,0.5" Fill="White">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <TextBlock HorizontalAlignment="Left" Margin="287,329,0,0" TextWrapping="Wrap" Text="←" VerticalAlignment="Top" FontSize="24" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.595"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="380,374,0,0" TextWrapping="Wrap" Text="0 | 1" VerticalAlignment="Top" Height="66" Width="183" Foreground="White"/>
+    </Grid>
+</Window>
