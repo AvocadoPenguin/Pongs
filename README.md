@@ -1,6 +1,6 @@
-#Pongs
+# Pongs
 
-#About the game          
+# About the game          
 
 ![Application Image](https://github.com/AvocadoPenguin/Pongs/blob/main/Pictures/FullGame.png)
 
