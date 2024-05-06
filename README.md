@@ -20,7 +20,7 @@ The game goes on forever and keeps track of your score. There are also customiza
 
 There are also pause and restart buttons which either pause the game until clicked again or restart the game respectively.
   
-![Application Image](file:///D:/bk/sbkRepo/Pongs/.git/Pictures/Buttons.png?raw=true)
+![Application Image](https://github.com/AvocadoPenguin/Pongs/blob/main/Pictures/Buttons.png)
 
 
 This project is using the MIT license, or Permissive open-source license. This means that this project can be used, modified, and distributed by others with credit to the creator.
