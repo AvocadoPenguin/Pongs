@@ -2,7 +2,7 @@
 
 # About the game          
 
-![](https://github.com/AvocadoPenguin/Pongs/blob/main/PongsGif.gif)
+![](https://github.com/AvocadoPenguin/Pongs/Pictures/PongsGif.gif)
 
 Pongs is a simple game where you can move your paddle using the WASD and arrow keys to hit the ball to the other side. If the ball goes past your side of the screen, the other person gets a point. 
   
