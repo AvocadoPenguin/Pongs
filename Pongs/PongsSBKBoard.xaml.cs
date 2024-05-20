@@ -112,9 +112,6 @@ namespace Pongs
                 Spacer.Width = Board.Width - (SettingsMenu.Width + About.Width + Help.Width) - (1.5 * RestartButton.Width + PauseButton.Width) - 2;
             }
 
-            Board.Children.Remove(Ball);
-            Board.Children.Add(Ball);
-
             P1Scoreboard.Text = "" + sbkGameEngine.P1Score;
             P2Scoreboard.Text = "" + sbkGameEngine.P2Score;
 
@@ -329,6 +326,7 @@ namespace Pongs
             Board.Children.Add(Boundary);
             Board.Children.Add(TopWall);
             Board.Children.Add(BottomWall);
+            Board.Children.Add(Ball);
 
             log.Info("InitBoard End");
         }
