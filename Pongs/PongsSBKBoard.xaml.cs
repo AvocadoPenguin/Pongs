@@ -79,8 +79,6 @@ namespace Pongs
             Canvas.SetTop(Paddle, y);
             Canvas.SetLeft(Paddle, x);
 
-            Board.Children.Remove(Paddle);
-            Board.Children.Add(Paddle);
             log.Info("DrawPaddle End");
         }
         public void ReDraw()
@@ -327,6 +325,11 @@ namespace Pongs
 
             DrawPaddle(paddle1, sbkGameEngine.x1, sbkGameEngine.y1);
             DrawPaddle(paddle2, sbkGameEngine.x2, sbkGameEngine.y2);
+            
+            Board.Children.Add(Boundary);
+            Board.Children.Add(TopWall);
+            Board.Children.Add(BottomWall);
+
             log.Info("InitBoard End");
         }
         private void ReDrawUnmoving()
@@ -347,12 +350,6 @@ namespace Pongs
             Canvas.SetTop(BottomWall, Board.Height - 63);
             Canvas.SetLeft(BottomWall, 0);
 
-            Board.Children.Remove(Boundary);
-            Board.Children.Add(Boundary);
-            Board.Children.Remove(TopWall);
-            Board.Children.Add(TopWall);
-            Board.Children.Remove(BottomWall);
-            Board.Children.Add(BottomWall);
             log.Info("ReDrawUnmoving End");
         }
         #endregion

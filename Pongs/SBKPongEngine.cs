@@ -92,7 +92,20 @@ namespace PongsSBK
             log.Info("BallMovement Start");
             if (GamePlayable == true)
             {
-                if ((Canvas.GetTop(mGuiReference.paddle2) < Canvas.GetTop(mGuiReference.Ball) && Canvas.GetTop(mGuiReference.Ball) < Canvas.GetTop(mGuiReference.paddle2) + mGuiReference.paddle2.Height && Canvas.GetLeft(mGuiReference.Ball) + mGuiReference.Ball.Width >= Canvas.GetLeft(mGuiReference.paddle2) && Canvas.GetLeft(mGuiReference.Ball) + mGuiReference.Ball.Width <= Canvas.GetLeft(mGuiReference.paddle2) + mGuiReference.paddle2.Width && HMovement == 1) || (Canvas.GetTop(mGuiReference.paddle1) < Canvas.GetTop(mGuiReference.Ball) && Canvas.GetTop(mGuiReference.Ball) < Canvas.GetTop(mGuiReference.paddle1) + mGuiReference.paddle1.Height && Canvas.GetLeft(mGuiReference.Ball) >= Canvas.GetLeft(mGuiReference.paddle1) && Canvas.GetLeft(mGuiReference.Ball) <= Canvas.GetLeft(mGuiReference.paddle1) + mGuiReference.paddle1.Width && HMovement == -1))
+                int P1Top = (int)Canvas.GetTop(mGuiReference.paddle1);
+                int P1Bottom = (int)(Canvas.GetTop(mGuiReference.paddle1) + mGuiReference.paddle1.Height);
+                int P1Left = (int)Canvas.GetLeft(mGuiReference.paddle1);
+                int P1Right = (int)(Canvas.GetLeft(mGuiReference.paddle1) + mGuiReference.paddle1.Width);
+                int P2Top = (int)Canvas.GetTop(mGuiReference.paddle2);
+                int P2Bottom = (int)(Canvas.GetTop(mGuiReference.paddle2) + mGuiReference.paddle2.Height);
+                int P2Left = (int)Canvas.GetLeft(mGuiReference.paddle2);
+                int P2Right = (int)(Canvas.GetLeft(mGuiReference.paddle2) + mGuiReference.paddle2.Width);
+                int BallTop = (int)Canvas.GetTop(mGuiReference.Ball);
+                int BallBottom = (int)(Canvas.GetTop(mGuiReference.Ball) + mGuiReference.Ball.Height);
+                int BallLeft = (int)Canvas.GetLeft(mGuiReference.Ball);
+                int BallRight = (int)(Canvas.GetLeft(mGuiReference.Ball) + mGuiReference.Ball.Width);
+
+                if ((P2Bottom > BallTop && P2Top < BallBottom && BallLeft < P2Right && BallRight > P2Left && HMovement == 1) || (P1Bottom > BallTop && P1Top < BallBottom && BallLeft < P1Right && BallRight > P1Left && HMovement == -1))
                 {
                     HMovement *= -1;
                     Console.Beep(37, 10);
