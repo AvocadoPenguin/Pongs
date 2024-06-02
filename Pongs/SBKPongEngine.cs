@@ -74,9 +74,9 @@ namespace PongsSBK
         public void Runner(object? obj)
         {
             log.Info("Runner Start");
-            while (Start == true)
+            while (Start)
             {
-                if (GamePlayable == true)
+                if (GamePlayable)
                 {
                     mGuiReference.Dispatcher.Invoke(() =>
                     BallMovement()
@@ -90,7 +90,7 @@ namespace PongsSBK
         public void BallMovement()
         {
             log.Info("BallMovement Start");
-            if (GamePlayable == true)
+            if (GamePlayable)
             {
                 int P1Top = (int)Canvas.GetTop(mGuiReference.paddle1);
                 int P1Bottom = (int)(Canvas.GetTop(mGuiReference.paddle1) + mGuiReference.paddle1.Height);
@@ -153,23 +153,23 @@ namespace PongsSBK
             }
             if (shape is Ellipse)
             {
-                DownPoint = UpPoint + (int)(1.5 * SliderInfo.BallSize);
+                DownPoint = UpPoint + (int)(1.5 * SliderInfo.BallSize) + 8;
                 RightPoint = LeftPoint + (int)(1.5 * SliderInfo.BallSize);
             }
 
-            if (UpBound == true && UpPoint <= BoundUpY)
+            if (UpBound && UpPoint <= BoundUpY)
             {
                 return false;
             }
-            if (DownBound == true && DownPoint >= BoundDownY)
+            if (DownBound && DownPoint >= BoundDownY)
             {
                 return false;
             }
-            if (LeftBound == true && LeftPoint <= BoundLeftX)
+            if (LeftBound && LeftPoint <= BoundLeftX)
             {
                 return false;
             }
-            if (RightBound == true && RightPoint >= BoundRightX)
+            if (RightBound && RightPoint >= BoundRightX)
             {
                 return false;
             }
@@ -193,40 +193,40 @@ namespace PongsSBK
         public void PressedKeys(/*object? sender, EventArgs e*/)
         {
             log.Info("PressedKeys Start");
-            if (GamePlayable == true)
+            if (GamePlayable)
             {
-                if (KeysPressed.Contains(Key.Up) && BoundaryCheck(mGuiReference.paddle2, 25, (int)mGuiReference.Board.Height - 78, (int)mGuiReference.Board.Width / 2, (int)mGuiReference.Board.Width, true, false, false, false) == true)
+                if (KeysPressed.Contains(Key.Up) && BoundaryCheck(mGuiReference.paddle2, 25, (int)mGuiReference.Board.Height - 78, (int)mGuiReference.Board.Width / 2, (int)mGuiReference.Board.Width, true, false, false, false))
                 {
                     y2 -= 2;
                 }
-                if (KeysPressed.Contains(Key.W) && BoundaryCheck(mGuiReference.paddle1, 25, (int)mGuiReference.Board.Height - 78, (int)mGuiReference.Board.Width / 2, (int)mGuiReference.Board.Width, true, false, false, false) == true)
+                if (KeysPressed.Contains(Key.W) && BoundaryCheck(mGuiReference.paddle1, 25, (int)mGuiReference.Board.Height - 78, (int)mGuiReference.Board.Width / 2, (int)mGuiReference.Board.Width, true, false, false, false))
                 {
                     y1 -= 2;
                 }
 
-                if (KeysPressed.Contains(Key.Down) && BoundaryCheck(mGuiReference.paddle2, 25, (int)mGuiReference.Board.Height - 78, (int)mGuiReference.Board.Width / 2, (int)mGuiReference.Board.Width, false, true, false, false) == true)
+                if (KeysPressed.Contains(Key.Down) && BoundaryCheck(mGuiReference.paddle2, 25, (int)mGuiReference.Board.Height - 78, (int)mGuiReference.Board.Width / 2, (int)mGuiReference.Board.Width, false, true, false, false))
                 {
                     y2 += 2;
                 }
-                if (KeysPressed.Contains(Key.S) && BoundaryCheck(mGuiReference.paddle1, 25, (int)mGuiReference.Board.Height - 78, (int)mGuiReference.Board.Width / 2, (int)mGuiReference.Board.Width, false, true, false, false) == true)
+                if (KeysPressed.Contains(Key.S) &&  BoundaryCheck(mGuiReference.paddle1, 25, (int)mGuiReference.Board.Height - 78, (int)mGuiReference.Board.Width / 2, (int)mGuiReference.Board.Width, false, true, false, false))
                 {
                     y1 += 2;
                 }
 
-                if (KeysPressed.Contains(Key.Left) && BoundaryCheck(mGuiReference.paddle2, 25, (int)mGuiReference.Board.Height - 78, (int)mGuiReference.Board.Width / 2, (int)mGuiReference.Board.Width / 2, false, false, true, false) == true)
+                if (KeysPressed.Contains(Key.Left) && BoundaryCheck(mGuiReference.paddle2, 25, (int)mGuiReference.Board.Height - 78, (int)mGuiReference.Board.Width / 2, (int)mGuiReference.Board.Width / 2, false, false, true, false))
                 {
                     x2 -= 2;
                 }
-                if (KeysPressed.Contains(Key.A) && BoundaryCheck(mGuiReference.paddle1, 25, (int)mGuiReference.Board.Height - 78, 0, (int)mGuiReference.Board.Width / 2, false, false, true, false) == true)
+                if (KeysPressed.Contains(Key.A) && BoundaryCheck(mGuiReference.paddle1, 25, (int)mGuiReference.Board.Height - 78, 0, (int)mGuiReference.Board.Width / 2, false, false, true, false))
                 {
                     x1 -= 2;
                 }
 
-                if (KeysPressed.Contains(Key.Right) && BoundaryCheck(mGuiReference.paddle2, 25, (int)mGuiReference.Board.Height - 78, 0, (int)mGuiReference.Board.Width - 20, false, false, false, true) == true)
+                if (KeysPressed.Contains(Key.Right) && BoundaryCheck(mGuiReference.paddle2, 25, (int)mGuiReference.Board.Height - 78, 0, (int)mGuiReference.Board.Width - 20, false, false, false, true))
                 {
                     x2 += 2;
                 }
-                if (KeysPressed.Contains(Key.D) && BoundaryCheck(mGuiReference.paddle1, 25, (int)mGuiReference.Board.Height - 78, 0, (int)mGuiReference.Board.Width / 2, false, false, false, true) == true)
+                if (KeysPressed.Contains(Key.D) && BoundaryCheck(mGuiReference.paddle1, 25, (int)mGuiReference.Board.Height - 78, 0, (int)mGuiReference.Board.Width / 2, false, false, false, true))
                 {
                     x1 += 2;
                 }
@@ -257,9 +257,9 @@ namespace PongsSBK
         private void PRunner(object? obj)
         {
             log.Info("PRunner Start");
-            while (Start == true)
+            while (Start)
             {
-                if (GamePlayable == true)
+                if (GamePlayable)
                 {
                     mGuiReference.Dispatcher.Invoke(() =>
                     PressedKeys()

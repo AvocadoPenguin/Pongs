@@ -26,6 +26,10 @@ namespace Pongs
         private Logger log = LogManager.GetLogger("");
         private Settings settings;
         private SliderInfo sliderInfo;
+        SolidColorBrush PaddleColor = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+        SolidColorBrush BallColor = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+        SolidColorBrush WallColor = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+        SolidColorBrush BackgroundColor = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
 
         System.Windows.RoutedEventArgs a;
 
@@ -53,6 +57,11 @@ namespace Pongs
 
             log.Info("Game Start");
 
+            SliderInfo.BallColor = (Color)ColorConverter.ConvertFromString("#FFFFFFFF");
+            SliderInfo.PaddleColor = (Color)ColorConverter.ConvertFromString("#FFFFFFFF");
+            SliderInfo.WallColor = (Color)ColorConverter.ConvertFromString("#FFFFFFFF");
+            SliderInfo.BackgroundColor = (Color)ColorConverter.ConvertFromString("#FF000000");
+
             Thread RunBall = new Thread(Runner);
             RunBall.Start();
 
@@ -70,10 +79,12 @@ namespace Pongs
         public void DrawPaddle(Rectangle Paddle, double x, double y)
         {
             log.Info("DrawPaddle Start");
+            PaddleColor = new SolidColorBrush(SliderInfo.PaddleColor);
+
             Paddle.Width = 1.5 * SliderInfo.PaddleSize;
             Paddle.Height = 7.8 * SliderInfo.PaddleSize;
             Paddle.Fill = Brushes.Black;
-            Paddle.Stroke = Brushes.White;
+            Paddle.Stroke = PaddleColor;
             Paddle.StrokeThickness = 4;
 
             Canvas.SetTop(Paddle, y);
@@ -83,7 +94,11 @@ namespace Pongs
         }
         public void ReDraw()
         {
-            log.Info("ReDraw Start");
+            log.Info("ReDraw Start");      
+            BallColor = new SolidColorBrush(SliderInfo.BallColor);
+            WallColor = new SolidColorBrush(SliderInfo.WallColor);
+            BackgroundColor = new SolidColorBrush(SliderInfo.BackgroundColor);
+
             if (WindowState == WindowState.Maximized)
             {
                 Window.Height = (int)System.Windows.SystemParameters.PrimaryScreenHeight;
@@ -100,8 +115,8 @@ namespace Pongs
 
             Ball.Width = 1.5 * SliderInfo.BallSize;
             Ball.Height = 1.5 * SliderInfo.BallSize;
-            Ball.Fill = Brushes.White;
-            Ball.Stroke = Brushes.White;
+            Ball.Fill = BallColor;
+            Ball.Stroke = BallColor;
             Ball.StrokeThickness = 4;
             Canvas.SetTop(Ball, Board.Height / 2 - Ball.Height / 2);
             Canvas.SetLeft(Ball, Board.Width / 2 - Ball.Width / 2);
@@ -111,9 +126,6 @@ namespace Pongs
             {
                 Spacer.Width = Board.Width - (SettingsMenu.Width + About.Width + Help.Width) - (1.5 * RestartButton.Width + PauseButton.Width) - 2;
             }
-
-            Board.Children.Remove(Ball);
-            Board.Children.Add(Ball);
 
             P1Scoreboard.Text = "" + sbkGameEngine.P1Score;
             P2Scoreboard.Text = "" + sbkGameEngine.P2Score;
@@ -132,12 +144,12 @@ namespace Pongs
         public void BallMovement()
         {
             log.Info("BallMovement Start");
-            if (sbkGameEngine.CanBallMove == true && sbkGameEngine.GamePlayable == true)
+            if (sbkGameEngine.CanBallMove && sbkGameEngine.GamePlayable)
             {
                 Canvas.SetTop(Ball, Canvas.GetTop(Ball) + sbkGameEngine.VMovement);
                 Canvas.SetLeft(Ball, Canvas.GetLeft(Ball) + sbkGameEngine.HMovement);
             }
-            if (sbkGameEngine.P1Wins == true)
+            if (sbkGameEngine.P1Wins)
             {
                 WhoWon_.Text = "Player 1 Wins!";
                 WhoWon_.Visibility = Visibility.Visible;
@@ -145,7 +157,7 @@ namespace Pongs
                 OnPause(Ball, a);
                 sbkGameEngine.i = 2;
             }
-            if (sbkGameEngine.P2Wins == true)
+            if (sbkGameEngine.P2Wins)
             {
                 WhoWon_.Text = "Player 2 Wins!";
                 WhoWon_.Visibility = Visibility.Visible;
@@ -252,9 +264,9 @@ namespace Pongs
         private void PRunner(object? obj)
         {
             log.Info("PRunner Start");
-            while (sbkGameEngine.Start == true)
+            while (sbkGameEngine.Start)
             {
-                if (sbkGameEngine.GamePlayable == true)
+                if (sbkGameEngine.GamePlayable)
                 {
                     Dispatcher.Invoke(() =>
                     PressedKeys()
@@ -268,9 +280,9 @@ namespace Pongs
         private void Runner(object? obj)
         {
             log.Info("Runner Start");
-            while (sbkGameEngine.Start == true)
+            while (sbkGameEngine.Start)
             {
-                if (sbkGameEngine.GamePlayable == true)
+                if (sbkGameEngine.GamePlayable)
                 {
                     Dispatcher.Invoke(() =>
                         BallMovement()
@@ -329,13 +341,14 @@ namespace Pongs
             Board.Children.Add(Boundary);
             Board.Children.Add(TopWall);
             Board.Children.Add(BottomWall);
+            Board.Children.Add(Ball);
 
             log.Info("InitBoard End");
         }
         private void ReDrawUnmoving()
         {
             log.Info("ReDrawUnmoving Start");
-            Boundary.Stroke = Brushes.Gray;
+            Boundary.Stroke = WallColor;
             Boundary.StrokeThickness = 3;
             Boundary.X1 = Board.Width / 2;
             Boundary.X2 = Board.Width / 2;
@@ -344,11 +357,18 @@ namespace Pongs
 
             BottomWall.Width = Board.Width;
             BottomWall.Height = 24;
-            BottomWall.Fill = Brushes.White;
-            BottomWall.Stroke = Brushes.White;
+            BottomWall.Fill = WallColor;
+            BottomWall.Stroke = WallColor;
             BottomWall.StrokeThickness = 4;
             Canvas.SetTop(BottomWall, Board.Height - 63);
             Canvas.SetLeft(BottomWall, 0);
+
+            Menu.BorderBrush = WallColor;
+            Spacer.BorderBrush = WallColor;
+            Menu.Background = WallColor;
+            Spacer.Background = WallColor;
+
+            Board.Background = BackgroundColor;
 
             log.Info("ReDrawUnmoving End");
         }

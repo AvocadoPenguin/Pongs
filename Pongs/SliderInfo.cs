@@ -30,6 +30,10 @@ public class SliderInfo
     public static double PaddleSpeed { get; set; }
     public static double PaddleSize { get; set; }
     public static double RoundsToWin { get; set; }
+    public static Color BallColor { get; set; }
+    public static Color BackgroundColor { get; set; }
+    public static Color PaddleColor { get; set; }
+    public static Color WallColor { get; set; }
 
-    public  SBKPongEngine Engine { get; private set; }
+    public SBKPongEngine Engine { get; private set; }
 }

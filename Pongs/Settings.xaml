@@ -1,19 +1,24 @@
 ﻿<Window x:Class="Pongs.Settings"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pongs"
         mc:Ignorable="d"
-        Title="Settings" Height="582" Width="382" Foreground="Black" BorderBrush="Black" OpacityMask="Black" Background="Black" ResizeMode="NoResize" Closing="OnClosing" WindowStyle="ToolWindow">
-    <Grid x:Name="grid" Margin="0,0,22,-16">
-        <TextBlock x:Name="Title" TextWrapping="Wrap" Text="Settings" Margin="12,1,-3,341" FontSize="36" Foreground="White"/>
-        <Slider x:Name="BallSpeedSlider" Margin="134,72,-2,377" Maximum="9" Minimum="2" IsSnapToTickEnabled="True" Value="{Binding BallSpeed, Mode=TwoWay}" ValueChanged="OnValueChanged"/>
-        <Slider x:Name="BallSizeSlider" Margin="134,171,-2,278" Maximum="50" Minimum="1" IsSnapToTickEnabled="True" Value="{Binding BallSize, Mode=TwoWay}" ValueChanged="OnValueChanged"/>
-        <Slider x:Name="PaddleSpeedSlider" Margin="134,270,-2,179" Maximum="9" Minimum="2" IsSnapToTickEnabled="True" Value="{Binding PaddleSpeed, Mode=TwoWay}" ValueChanged="OnValueChanged"/>
-        <Slider x:Name="PaddleSizeSlider" Margin="134,380,-2,69" Maximum="50" Minimum="1" IsSnapToTickEnabled="True" Value="{Binding PaddleSize, Mode=TwoWay}" ValueChanged="OnValueChanged"/>
-        <Label Content="Ball Speed" Margin="8,62,219,366" Background="Black" BorderBrush="White" Foreground="White" FontSize="18"/>
-        <Label Content="Ball Size" Margin="8,160,222,267" Background="Black" BorderBrush="White" Foreground="White" FontSize="18" RenderTransformOrigin="0.109,0.46">
+        Title="Settings" Height="441" Width="808" Foreground="Black" BorderBrush="Black" OpacityMask="Black" Background="Black" ResizeMode="NoResize" Closing="OnClosing" WindowStyle="ToolWindow">
+    <Grid x:Name="grid" HorizontalAlignment="Center" Width="808">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="233*"/>
+            <ColumnDefinition Width="575*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="Title" TextWrapping="Wrap" Text="Settings" Margin="12,1,0,0" FontSize="36" Foreground="White" Grid.ColumnSpan="2" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Width="799"/>
+        <Slider x:Name="BallSpeedSlider" Margin="136,72,0,0" Maximum="9" Minimum="2" IsSnapToTickEnabled="True" Value="{Binding BallSpeed, Mode=TwoWay}" ValueChanged="OnValueChanged" HorizontalAlignment="Left" Width="226" Height="123" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Slider x:Name="BallSizeSlider" Margin="334,72,0,0" Maximum="50" Minimum="1" IsSnapToTickEnabled="True" Value="{Binding BallSize, Mode=TwoWay}" ValueChanged="OnValueChanged" HorizontalAlignment="Left" Width="226" Height="123" VerticalAlignment="Top" Grid.Column="1"/>
+        <Slider x:Name="PaddleSpeedSlider" Margin="136,153,0,0" Maximum="9" Minimum="2" IsSnapToTickEnabled="True" Value="{Binding PaddleSpeed, Mode=TwoWay}" ValueChanged="OnValueChanged" HorizontalAlignment="Left" Width="226" Height="123" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Slider x:Name="PaddleSizeSlider" Margin="334,151,0,0" Maximum="50" Minimum="1" IsSnapToTickEnabled="True" Value="{Binding PaddleSize, Mode=TwoWay}" ValueChanged="OnValueChanged" HorizontalAlignment="Left" Width="226" Height="123" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="Ball Speed" Margin="12,62,0,0" Background="Black" BorderBrush="White" Foreground="White" FontSize="18" Height="144" VerticalAlignment="Top" HorizontalAlignment="Left" Width="96"/>
+        <Label Content="Ball Size" Margin="240,62,0,0" Background="Black" BorderBrush="White" Foreground="White" FontSize="18" RenderTransformOrigin="0.109,0.46" HorizontalAlignment="Left" Width="74" Height="145" VerticalAlignment="Top" Grid.Column="1">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -23,14 +28,26 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="Paddle Speed" Margin="8,259,219,168" Background="Black" BorderBrush="White" Foreground="White" FontSize="14"/>
-        <Label Content="Paddle Size" Margin="8,370,219,58" Background="Black" BorderBrush="White" Foreground="White" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="134,96,0,0" TextWrapping="Wrap" Text="The speed at which the ball starts moving at." VerticalAlignment="Top" Height="56" Width="210" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="134,195,0,0" TextWrapping="Wrap" Text="The size of the ball." VerticalAlignment="Top" Height="56" Width="210" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="134,294,0,0" TextWrapping="Wrap" Text="The speed at which the paddle moves at." VerticalAlignment="Top" Height="56" Width="210" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="134,404,0,0" TextWrapping="Wrap" Text="The size of the paddle." VerticalAlignment="Top" Height="56" Width="210" Foreground="White"/>
-        <Label Content="Rounds to Win" Margin="8,460,219,10" Background="Black" BorderBrush="White" Foreground="White" FontSize="16"/>
-        <TextBox x:Name="Rounds_to_win" HorizontalAlignment="Left" Margin="136,466,0,0" TextWrapping="Wrap" Text="{Binding RoundsToWin, Mode=TwoWay}" VerticalAlignment="Top" Width="202"/>
-        <TextBlock HorizontalAlignment="Left" Margin="134,493,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="56" Width="210" Foreground="White"><Run Text="The amount of wins a player needs to win the game"/><LineBreak/><Run/></TextBlock>
+        <Label Content="Paddle Speed" Margin="8,144,0,0" Background="Black" BorderBrush="White" Foreground="White" FontSize="18" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Width="121"/>
+        <Label Content="Paddle Size" Margin="213,141,0,0" Background="Black" BorderBrush="White" Foreground="White" FontSize="18" Height="144" VerticalAlignment="Top" HorizontalAlignment="Left" Width="103" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="138,96,0,0" TextWrapping="Wrap" Text="The speed at which the ball starts moving at." VerticalAlignment="Top" Height="56" Width="210" Foreground="White" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="334,96,0,0" TextWrapping="Wrap" Text="The size of the ball." VerticalAlignment="Top" Height="56" Width="210" Foreground="White" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="136,177,0,0" TextWrapping="Wrap" Text="The speed at which the paddle moves at." VerticalAlignment="Top" Height="56" Width="210" Foreground="White" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="334,175,0,0" TextWrapping="Wrap" Text="The size of the paddle." VerticalAlignment="Top" Height="56" Width="210" Foreground="White" Grid.Column="1"/>
+        <Label Content="Rounds to Win" Margin="213,225,0,0" Background="Black" BorderBrush="White" Foreground="White" FontSize="16" Height="102" VerticalAlignment="Top" HorizontalAlignment="Left" Width="121" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="Rounds_to_win" HorizontalAlignment="Left" Margin="108,231,0,0" TextWrapping="Wrap" Text="{Binding RoundsToWin, Mode=TwoWay}" VerticalAlignment="Top" Width="202" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,254,259,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="56" Width="210" Foreground="White" Grid.Column="1"><Run Text="The amount of wins a player needs to win the game"/><LineBreak/><Run/></TextBlock>
+        <Label Content="Ball Colors" Margin="36,298,0,0" Background="Black" BorderBrush="White" Foreground="White" FontSize="18" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Width="98"/>
+        <Label Content="Background Color" Margin="404,300,0,0" Background="Black" BorderBrush="White" Foreground="White" FontSize="18" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Width="161" Grid.Column="1"/>
+        <xctk:ColorPicker x:Name="Ball_Color_Picker"  Margin="33,339,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101" ShowDropDownButton = "False" ShowTabHeaders="False" ColorMode="ColorCanvas" SelectedColor="{Binding BallColor, Mode=TwoWay}"/>
+        <xctk:ColorPicker x:Name="Background_Color_Picker"  Margin="425,339,0,0" Grid.Column="1" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" ShowDropDownButton = "False" ShowTabHeaders="False"  ColorMode="ColorCanvas" SelectedColor="{Binding BackgroundColor, Mode=TwoWay}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="29,374,0,0" TextWrapping="Wrap" Text="The color of the ball" VerticalAlignment="Top" Height="56" Width="112" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="404,373,0,0" TextWrapping="Wrap" Text="The color of the background" VerticalAlignment="Top" Height="56" Width="210" Foreground="White" Grid.Column="1"/>
+        <Label Content="Paddle Colors" Margin="221,300,0,0" Background="Black" BorderBrush="White" Foreground="White" FontSize="18" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Width="125" Grid.ColumnSpan="2"/>
+        <xctk:ColorPicker x:Name="Paddle_Color_Picker"  Margin="230,339,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101" ShowDropDownButton = "False" ShowTabHeaders="False" ColorMode="ColorCanvas" SelectedColor="{Binding PaddleColor, Mode=TwoWay}" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="215,374,0,0" TextWrapping="Wrap" Text="The color of the paddles" VerticalAlignment="Top" Height="56" Width="132" Foreground="White" Grid.ColumnSpan="2"/>
+        <Label Content="Wall Colors" Margin="208,298,0,0" Background="Black" BorderBrush="White" Foreground="White" FontSize="18" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Width="103" Grid.Column="1"/>
+        <xctk:ColorPicker x:Name="Wall_Color_Picker"  Margin="207,339,0,0" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101" ShowDropDownButton = "False" ShowTabHeaders="False" ColorMode="ColorCanvas" SelectedColor="{Binding WallColor, Mode=TwoWay}" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="203,374,0,0" TextWrapping="Wrap" Text="The color of the walls" VerticalAlignment="Top" Height="56" Width="210" Foreground="White" Grid.Column="1"/>
     </Grid>
 </Window>

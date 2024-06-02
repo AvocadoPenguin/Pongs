@@ -29,7 +29,7 @@
             <MenuItem x:Name="SettingsMenu" Width="74" Height="28" Background="Black" Header="Settings" FontSize="17" Click="OnClick"/>
             <MenuItem x:Name="Help" Width="50" Height="28" Background="Black" Header="Help" FontSize="17" Click="About_Click"/>
             <MenuItem x:Name="About" Width="60" Height="28" Background="Black" Header="About" FontSize="17" Click="Help_Click"/>
-            <MenuItem x:Name="Spacer" Width="368" Height="28" Background="White"/>
+            <MenuItem x:Name="Spacer" Width="368" Height="28" Background="White" BorderBrush="White" OpacityMask="White"/>
             <MenuItem x:Name="PauseButton" Width="26" Height="28" Background="#FF505050" Header="❙❙" FontSize="18" Click="OnPause" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="ExtraBold"/>
             <MenuItem x:Name="RestartButton" Width="28" Height="28" Background="Black" Header="⟳" FontSize="17" Click="OnRestart"/>
         </Menu>
